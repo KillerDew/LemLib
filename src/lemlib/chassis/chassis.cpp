@@ -1,3 +1,4 @@
+#include <cmath>
 #include <math.h>
 #include "pros/imu.hpp"
 #include "pros/motors.h"
@@ -158,4 +159,29 @@ void lemlib::Chassis::resetLocalPosition() {
 void lemlib::Chassis::setBrakeMode(pros::motor_brake_mode_e mode) {
     drivetrain.leftMotors->set_brake_mode_all(mode);
     drivetrain.rightMotors->set_brake_mode_all(mode);
+}
+
+void lemlib::Chassis::changeAngularP (float P) {
+    angularSettings.kP = P;
+    angularPID.kP = P;
+}
+void lemlib::Chassis::changeAngularI (float I) {
+    angularSettings.kI = I;
+    angularPID.kI = I;
+}
+void lemlib::Chassis::changeAngularD (float D) {
+    angularSettings.kD = D;
+    angularPID.kD = D;
+}
+void lemlib::Chassis::changeLatP (float P) {
+    lateralSettings.kP = P;
+    lateralPID.kP = P;
+}
+void lemlib::Chassis::changeLatI (float I) {
+    lateralSettings.kI = I;
+    lateralPID.kI = I;
+}
+void lemlib::Chassis::changeLatD (float D) {
+    lateralSettings.kD = D;
+    lateralPID.kD = D;
 }
